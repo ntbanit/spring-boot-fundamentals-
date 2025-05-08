@@ -1,7 +1,7 @@
 package com.example.demo;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.NoSuchElementException;
@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.demo.jpa.entity.Student;
 import com.example.demo.jpa.repo.StudentRepository;
+
 
 /** SECTION #5: Spring Data JPA*/
 @SpringBootTest
@@ -30,8 +31,8 @@ class Section5DataJPATests {
 		Optional<Student> optional = studentRepository.findById(1L);
 		Student actualInsert = optional.get();
 		assertNotNull(actualInsert);
-		assertSame(actualInsert.getName(), "An");
-		assertSame(actualInsert.getTestScore(), 100);
+		assertEquals(actualInsert.getName(), "An");
+		assertEquals(actualInsert.getTestScore(), 100);
 
 	}
 
@@ -48,8 +49,8 @@ class Section5DataJPATests {
 
 		Optional<Student> optional = studentRepository.findById(2L);
 		Student actualUpdate = optional.get();
-		assertSame(actualUpdate.getName(), "NguyenThiBinhAn");
-		assertSame(actualUpdate.getTestScore(), 99);
+		assertEquals(actualUpdate.getName(), "NguyenThiBinhAn");
+		assertEquals(actualUpdate.getTestScore(), 99);
 
 	}
 

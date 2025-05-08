@@ -2,8 +2,9 @@ package com.example.demo.jpa.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,10 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.jpa.entity.Product;
 import com.example.demo.jpa.repo.ProductRepository;
 
+/*** Section #6 - Create REST CRUD API # */
 @RestController
 @RequestMapping("/products")
 public class ProductController {
 
+	/*** Section #9 - Logger # */
+	private static final Logger LOGGER = LoggerFactory.getLogger(ProductController.class);
+	
 	@Autowired
 	private ProductRepository productRepository;
 
@@ -30,6 +35,7 @@ public class ProductController {
 
 	@GetMapping("/{id}")
 	public Product getProductById(@PathVariable int id) {
+		LOGGER.info(String.format("================ getProductById with id={%d}================", id));
 		return productRepository.findById(id).get();
 	}
 
@@ -51,10 +57,7 @@ public class ProductController {
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Object> deleteProduct(@PathVariable int id) {
-		return productRepository.findById(id).map(product -> {
-			productRepository.delete(product);
-			return ResponseEntity.noContent().build();
-		}).orElse(ResponseEntity.notFound().build());
+	public void deleteProduct(@PathVariable int id) {
+		productRepository.deleteById(id);
 	}
 }

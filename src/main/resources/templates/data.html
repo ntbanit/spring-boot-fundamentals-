@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Data Render</title>
+</head>
+<body>
+	<h1>The Message is here: </h1>
+    <h2 th:text="${message}"></h2>
+    <hr/>
+    
+    <h1>Student Object Detailes: </h1>
+    <h2>Id : <strong th:text="${student.id}"></strong></h2>
+    <h2>Name : <strong th:text="${student.name}"></strong></h2>
+    <h2>Test Score : <strong th:text="${student.testScore}"></strong></h2>
+</body>
+</html>

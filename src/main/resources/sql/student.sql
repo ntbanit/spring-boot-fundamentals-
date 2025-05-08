@@ -1,0 +1,6 @@
+/** DDL FOR SECTION #5: Spring Data JPA*/
+CREATE TABLE Student (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    test_score INT NOT NULL
+);
