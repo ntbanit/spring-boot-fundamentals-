@@ -15,7 +15,7 @@ import com.example.demo.jpa.entity.Product;
 
 /** SECTION #7: REST Client */
 @SpringBootTest
-class ProductControllerTest {
+class Section7ProductControllerTest {
 	
 	/** START: SECTION #8: Spring Profiles*/
 	@Value("${products.services.url}")
@@ -23,12 +23,8 @@ class ProductControllerTest {
 	
 	/** END: SECTION #8: Spring Profiles*/
 	
-	@Test
-	public void placeHolder() {
 		// skip test case when mvn clean build because
 		// (this file have to run after the application run to success)
-		assertEquals(1 + 2, 3);
-	}
 //    @Test
 //    public void testCreateProduct() {
 //    	
